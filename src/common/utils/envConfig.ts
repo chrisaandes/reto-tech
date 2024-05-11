@@ -14,5 +14,6 @@ export const env = cleanEnv(process.env, {
 	PG_MAX_CLIENTS: num({ devDefault: testOnly(20) }),
 	PG_MIN_CLIENTS: num({ devDefault: testOnly(4) }),
 	PG_IDLE_TIMEOUT: num({ devDefault: testOnly(10000) }),
-	PG_CONNECTION_TIMEOUT: num({ devDefault: testOnly(2000) })
+	PG_CONNECTION_TIMEOUT: num({ devDefault: testOnly(2000) }),
+	JWT_SECRET: str({ devDefault: testOnly('secret') }),
 });
