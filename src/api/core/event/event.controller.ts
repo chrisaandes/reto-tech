@@ -1,14 +1,19 @@
 import { Request, Response } from 'express';
 import { IEventService } from '@/api/shared/types/IEventService';
+import {  IAttendeeService } from '@/api/shared/types/IAttendeeService';
 import { BaseController } from '@/api/shared/controllers/base.controller';
 
 export class EventController extends BaseController {
-	constructor(private eventService: IEventService) {
+	constructor(private eventService: IEventService, private attendeeService: IAttendeeService) {
 		super();
 	}
 
 	public createEvent(req: Request, res: Response): void {
 		this.sendResponse(req, res, this.eventService.createEvent(req.body));
+	}
+
+	public createEventAttendee(req: Request, res: Response): void {
+		this.sendResponse(req, res, this.attendeeService.createAttendee(req.body));
 	}
 
 	public getEventById(req: Request, res: Response): void {
