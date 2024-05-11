@@ -7,7 +7,7 @@ const config: Config = {
 	preset: 'ts-jest',
 	testEnvironment: 'jest-environment-node',
 	moduleNameMapper: {
-		"^@/(.*)$": "<rootDir>/src/$1"
+		'^@/(.*)$': '<rootDir>/src/$1'
 	}
 };
 
