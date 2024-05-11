@@ -9,6 +9,7 @@ import requestLogger from '@/api/shared/middlewares/requestLogger';
 
 import { healthModule } from '@/api/core/health/health.module';
 import { eventModule } from '@/api/core/event/event.module';
+import { userModule } from './api/core/user/user.module';
 
 const logger = pino({ name: 'server start' });
 const app: Express = express();
@@ -33,6 +34,8 @@ app.all('/', (req, res) => {
 // Routes
 app.use('/health', healthModule);
 app.use(eventModule);
+app.use(userModule);
+
 
 // Error handlers
 app.use(unexpectedRequest);
