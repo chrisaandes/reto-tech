@@ -52,19 +52,19 @@ export class Event {
 	set description(value: string) {
 		this.data.description = value;
 	}
-	set startDate(value: Date) {
+	set startDate(value: string) {
 		this.data.startDate = value;
 	}
-	set endDate(value: Date) {
+	set endDate(value: string) {
 		this.data.endDate = value;
 	}
 	set location(value: string) {
 		this.data.location = value;
 	}
-	set latitude(value: number) {
+	set latitude(value: string) {
 		this.data.latitude = value;
 	}
-	set longitude(value: number) {
+	set longitude(value: string) {
 		this.data.longitude = value;
 	}
 	set userId(value: string) {
