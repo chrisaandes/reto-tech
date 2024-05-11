@@ -5,7 +5,10 @@ const config: Config = {
 	coverageDirectory: 'coverage',
 	coverageProvider: 'v8',
 	preset: 'ts-jest',
-	testEnvironment: 'jest-environment-node'
+	testEnvironment: 'jest-environment-node',
+	moduleNameMapper: {
+		"^@/(.*)$": "<rootDir>/src/$1"
+	}
 };
 
 export default config;
