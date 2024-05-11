@@ -21,7 +21,6 @@ export const errorHandler: ErrorRequestHandler = (err, _req, res, _next) => {
 	});
 };
 
-
 export const globalErrorHandler: ErrorRequestHandler = (err, _req, res, _next) => {
 	res.locals.err = err.stack;
 

@@ -1,5 +1,6 @@
 import { env } from '@/common/utils/envConfig';
 import { app, logger } from '@/server';
+import { closePool } from '@/common/db/connect';
 
 export const server = app.listen(env.PORT, () => {
 	const { NODE_ENV, HOST, PORT } = env;
@@ -14,6 +15,11 @@ export const onCloseSignal = () => {
 	});
 	setTimeout(() => process.exit(1), 10000).unref(); // Force shutdown after 10s
 };
+
+process.on('SIGINT', async () => {
+	await closePool();
+	process.exit(0);
+});
 
 process.on('SIGINT', onCloseSignal);
 process.on('SIGTERM', onCloseSignal);
