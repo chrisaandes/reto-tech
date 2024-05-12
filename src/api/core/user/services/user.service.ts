@@ -8,12 +8,12 @@ import { generateToken } from '@/common/utils/tokenize/jwt';
 export class UserService implements IUserService {
 	constructor(private userRepository: UserRepository) {}
 
-	async login(email: string, password: string): Promise<AuthUserData | null> {
+	async login(email: string, inputPassword: string): Promise<AuthUserData | null> {
 		const user = await this.userRepository.findByEmail(email);
 		if (!user) {
 			return null;
 		}
-		const isMatch = await comparePassword(password, user.password);
+		const isMatch = await comparePassword(inputPassword, user.password);
 		if (!isMatch) {
 			return null;
 		}
@@ -22,9 +22,12 @@ export class UserService implements IUserService {
 
 		return {
 			token,
-			user
+			user: {
+				id: user.id,
+				name: user.name,
+				email: user.email
+			}
 		};
-	
 	}
 
 	async createUser(userData: UserData): Promise<User> {

@@ -6,7 +6,7 @@
 	"scripts": {
 		"dev": "tsx watch --clear-screen=false src/app.ts | pino-pretty",
 		"build": "rimraf ./dist && tsc",
-		"start": "yarn build && node dist/app.js",
+		"start": "pnpm build && node -r ts-node/register/transpile-only -r tsconfig-paths/register dist/app.js",
 		"test": "jest --passWithNoTests",
 		"test:watch": "jest --watchAll",
 		"test:coverage": "jest --coverage --passWithNoTests",

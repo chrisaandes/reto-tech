@@ -5,7 +5,11 @@ export type UserData = z.infer<typeof UserSchema>;
 
 export type AuthUserData = {
 	token: string;
-	user: UserData;
+	user: {
+    id?: string;
+    name: string;
+    email: string;
+  };
 };
 
 export class User {
