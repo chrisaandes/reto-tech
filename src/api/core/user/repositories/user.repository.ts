@@ -24,13 +24,7 @@ export class UserRepository {
         $1, $2, $3, $4, $5, $6,
         CURRENT_TIMESTAMP,
         CURRENT_TIMESTAMP
-      ) RETURNING "id",
-                  "name",
-                  "email",
-                  "phone",
-                  "role",
-                  "createdAt",
-                  "updatedAt"`,
+      ) RETURNING *`,
       [
         userData.id,
         userData.name,
